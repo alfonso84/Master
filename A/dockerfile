@@ -1,0 +1,7 @@
+FROM httpd:latest
+
+# Copia el archivo index.html al directorio del servidor web
+COPY ./index.html /usr/local/apache2/htdocs
+
+# Define el CMD por defecto para iniciar el servidor web en modo daemon
+CMD ["httpd", "-DFOREGROUND", "-k", "start"]
