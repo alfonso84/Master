@@ -9,7 +9,7 @@ class Saludos:
     def get_saludo(self, nombre=None):
         if nombre is None:
             nombre = "Mundo"
-        return f"{self.saludos[0]}, {nombre}!"
+        return f"{self.saludos[random.randint(0, len(self.saludos) - 1)]}, {nombre}!"
 
 
 def saludar(nombre=None):
