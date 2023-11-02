@@ -52,6 +52,15 @@ jobs:
       - name: Current Dir
         run: ls /home/runner/work/Master
 
+      - name: Current Dir
+        run: ls /home/runner/work/
+
+      - name: Current Dir
+        run: ls /home/runner/
+
+      - name: Current Dir
+        run: ls /home/
+
       - name: Build Docker image
         run: docker build -t app .
 
