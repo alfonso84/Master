@@ -1,0 +1,9 @@
+FROM alpine:latest
+
+RUN apk add python3
+
+WORKDIR /app
+ENV PI=3.14159
+COPY calculator.py /app/calculator.py
+
+CMD [ "python", "calculator.py" ]
