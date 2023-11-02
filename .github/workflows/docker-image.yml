@@ -55,4 +55,4 @@ jobs:
         run: docker login -u ${{ secrets.USER }} -p ${{ secrets.TOKEN }}
 
       - name: Push Docker image
-        run: docker push app
+        run: docker push xnextion/devsecops
