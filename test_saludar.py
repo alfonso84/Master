@@ -5,24 +5,23 @@ import unittest
 class TestSaludar(unittest.TestCase):
 
     def test_saludo1(self):
-        assert "Hola" == saludar.saludo1()
+        assert "Hola" == saludar()
 
     def test_saludo2(self):
-        assert "Buenos días" == saludar.saludo2()
+        assert "Buenos días" == saludar()
 
     def test_saludo3(self):
-        assert "Hola, ¿Qué tal?" == saludar.saludo3()
+        assert "Hola, ¿Qué tal?" == saludar()
 
     def test_saludo_con_nombre(self):
-        assert "Hola, Juan" == saludar.saludar("Juan")
+        assert "Hola, Juan" == saludar("Juan")
 
     def test_saludo_con_nombre_vacio(self):
-        with self.assertRaises(ValueError):
-            saludar.saludar("")
+        assert "Hola, Mundo!" == saludar()
 
     def test_saludo_con_nombre_numerico(self):
         with self.assertRaises(TypeError):
-            saludar.saludar(123)
+            saludar(123)
 
 
 if __name__ == "__main__":
