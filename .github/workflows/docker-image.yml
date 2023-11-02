@@ -47,10 +47,7 @@ jobs:
         run: pwd
 
       - name: Current Dir
-        run: ls /home/runner/work/Master/Master
-
-      - name: Current Dir
-        run: ls /home/runner/work/Master
+        run: ls /home/runner/work/
 
       - name: Build Docker image
         run: docker build -t app .
