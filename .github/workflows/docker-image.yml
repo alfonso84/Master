@@ -47,7 +47,7 @@ jobs:
         run: ls
 
       - name: Build Docker image
-        run: docker build -t app -f ./src/Dockerfile .
+        run: docker build -t app .
 
       - name: Push Docker image
         run: docker push app
