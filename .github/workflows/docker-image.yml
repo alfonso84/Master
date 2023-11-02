@@ -52,4 +52,4 @@ jobs:
         run: docker build -t app .
 
       - name: Push Docker image
-        run: docker push app -u ${{ secrets.USER }} -p ${{ secrets.TOKEN }}
+        run: docker push app -p ${{ secrets.TOKEN }}
