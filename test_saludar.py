@@ -1,3 +1,4 @@
+import saludar
 import random
 import unittest
 from mock import patch
