@@ -19,6 +19,7 @@ jobs:
             pip install flake8 --upgrade
             pip install -r requirements.txt
             pip install pytest-integration
+            pip install locust
       # Step 3: ejecutamos linters y flake8 y lanzamos casos de prueba
       - run:
           name: run tests
