@@ -40,12 +40,6 @@ jobs:
           command: |
             source venv/bin/activate
             pip download -r requirements.txt
-      # Step 6: post-cache dependencies
-      - run:
-          name: post-cache dependencies
-          command: |
-            source venv/bin/activate
-            pip cache publish
       # Step 7: run coverage tests
       - run:
           name: run coverage tests
