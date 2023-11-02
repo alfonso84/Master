@@ -1,17 +1,22 @@
-import saludar
+import random
+import unittest
+from mock import patch
 
 
-class TestSaludar:
+class TestSaludar(unittest.TestCase):
 
+    @patch('random.randint', return_value=0)
     def test_saludo1(self):
-        assert saludar.saludar() in ["Hola", "Buenos días", "Hola, ¿Qué tal?"]
+        assert saludar.saludar() == "Hola"
 
+    @patch('random.randint', return_value=1)
     def test_saludo2(self):
-        assert saludar.saludar("Pedro") in ["Hola, Pedro", "Buenos días, Pedro", "Hola, ¿Qué tal?, Pedro"]
+        assert saludar.saludar() == "Buenos días"
 
+    @patch('random.randint', return_value=2)
     def test_saludo3(self):
-        assert saludar.saludar("Juan") in ["Hola, Juan", "Buenos días, Juan", "Hola, ¿Qué tal?, Juan"]
+        assert saludar.saludar() == "Hola, ¿Qué tal?"
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
