@@ -17,6 +17,18 @@ jobs:
             python3 -m venv venv
             source venv/bin/activate
             pip install -r requirements.txt
+      # Step 4: ejecutamos análisis de código estático
+      - run:
+          name: run static code analysis
+          command: |
+            source venv/bin/activate
+            bandit -r app
+      # Step 5: ejecutamos pruebas de integración
+      - run:
+          name: run integration tests
+          command: |
+            source venv/bin/activate
+            nosetests            
       # Step 3: ejecutamos linters y flake8 y lanzamos casos de prueba
       - run:
           name: run tests
@@ -34,15 +46,3 @@ jobs:
             #docker build -t poc/$IMAGE_NAME:$TAG .
             #echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             #docker push ideaslocas/$IMAGE_NAME:$TAG
-      # Step 5: pre-cache dependencies
-      - run:
-          name: pre-cache dependencies
-          command: |
-            source venv/bin/activate
-            pip download -r requirements.txt
-      # Step 7: run coverage tests
-      - run:
-          name: run coverage tests
-          command: |
-            source venv/bin/activate
-            pytest --cov=app --cov-report=html
