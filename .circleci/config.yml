@@ -16,6 +16,7 @@ jobs:
           command: |
             python3 -m venv venv
             source venv/bin/activate
+            pip install bandit
             pip install -r requirements.txt
       # Step 4: ejecutamos análisis de código estático
       - run:
