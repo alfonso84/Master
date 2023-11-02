@@ -44,7 +44,7 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build Docker image
-        run: docker build -t app -f src/Dockerfile .
+        run: docker build -t app -f ./src/Dockerfile .
 
       - name: Push Docker image
         run: docker push app
