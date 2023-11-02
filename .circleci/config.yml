@@ -16,19 +16,14 @@ jobs:
           command: |
             python3 -m venv venv
             source venv/bin/activate
-            pip install flake8 --upgrade
             pip install -r requirements.txt
-            pip install pytest-integration
-            pip install coverage
-            pip install coverage --upgrade
-            pip install locust
       # Step 3: ejecutamos linters y flake8 y lanzamos casos de prueba
       - run:
           name: run tests
           command: |
             source venv/bin/activate
             flake8 --exclude=venv* --statistics
-            pytest --cov=app --cov-report=html      
+            pytest -v
 #      - setup_remote_docker:
 #          docker_layer_caching: true
       # Step 4: Docker build
@@ -39,3 +34,21 @@ jobs:
             #docker build -t poc/$IMAGE_NAME:$TAG .
             #echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             #docker push ideaslocas/$IMAGE_NAME:$TAG
+      # Step 5: pre-cache dependencies
+      - run:
+          name: pre-cache dependencies
+          command: |
+            source venv/bin/activate
+            pip download -r requirements.txt
+      # Step 6: post-cache dependencies
+      - run:
+          name: post-cache dependencies
+          command: |
+            source venv/bin/activate
+            pip cache publish
+      # Step 7: run coverage tests
+      - run:
+          name: run coverage tests
+          command: |
+            source venv/bin/activate
+            pytest --cov=app --cov-report=html
