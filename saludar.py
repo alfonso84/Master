@@ -1,25 +1,22 @@
 import random
 
 
-def saludo1():
-    return "Hola"
+class Saludos:
+
+    def __init__(self):
+        self.saludos = ["Hola", "Buenos días", "Hola, ¿Qué tal?"]
+
+    def get_saludo(self):
+        return self.saludos[random.randint(0, len(self.saludos) - 1)]
 
 
-def saludo2():
-    return "Buenos días"
+def saludar(nombre=None):
+    saludos = Saludos()
+    saludo = saludos.get_saludo()
+    if nombre is None:
+        print(saludo)
+    else:
+        print(f"{saludo}, {nombre}")
 
 
-def saludo3():
-    return "Hola, ¿Qué tal?"
-
-
-saludo = random.randint(0, 2)
-
-if saludo == 0:
-    print(saludo1())
-elif saludo == 1:
-    print(saludo2())
-elif saludo == 2:
-    print(saludo3())
-else:
-    print("Adios")
+saludar()
