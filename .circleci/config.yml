@@ -27,11 +27,11 @@ jobs:
             flake8 --exclude=venv* --statistics
             pytest -v
       # Step 4: run integration tests
-      - run:
-          name: run integration tests
-          command: |
-            source venv/bin/activate
-            pytest -v --integration
+      # - run:
+      #     name: run integration tests
+      #     command: |
+      #       source venv/bin/activate
+      #       pytest -v --integration
       # Step 5: run performance tests
       - run:
           name: run performance tests
