@@ -43,6 +43,12 @@ jobs:
       - name: Set up Docker
         uses: docker/setup-buildx-action@v1
 
+      - name: Run pwd
+        run: pwd
+
+      - name: Run pwd
+        run: ls $GITHUB_WORKSPACE
+
       - name: Build Docker image
         run: docker build -t app -f ./src/Dockerfile .
 
