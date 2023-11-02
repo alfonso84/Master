@@ -17,20 +17,21 @@ jobs:
             python3 -m venv venv
             source venv/bin/activate
             pip install bandit
+            pip install nose            
             pip install -r requirements.txt
-      # Step 4: ejecutamos análisis de código estático
+      # Step 3: ejecutamos análisis de código estático
       - run:
           name: run static code analysis
           command: |
             source venv/bin/activate
             bandit -r app
-      # Step 5: ejecutamos pruebas de integración
+      # Step 4: ejecutamos pruebas de integración
       - run:
           name: run integration tests
           command: |
             source venv/bin/activate
             nosetests            
-      # Step 3: ejecutamos linters y flake8 y lanzamos casos de prueba
+      # Step 5: ejecutamos linters y flake8 y lanzamos casos de prueba
       - run:
           name: run tests
           command: |
@@ -39,7 +40,7 @@ jobs:
             pytest -v
 #      - setup_remote_docker:
 #          docker_layer_caching: true
-      # Step 4: Docker build
+      # Step 6: Docker build
       - run:
           name: Build and Push Docker
           command: |
