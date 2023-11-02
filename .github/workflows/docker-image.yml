@@ -23,6 +23,9 @@ jobs:
       - name: Install bandit
         run: pip install bandit
 
+      - name: Install nose
+        run: pip install nose
+
       - name: Run static code analysis
         run: bandit -r app
 
