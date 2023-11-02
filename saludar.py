@@ -13,6 +13,20 @@ def saludo3():
     return "Hola, ¿Qué tal?"
 
 
+def get_saludo():
+    return random.choice([saludo1(), saludo2(), saludo3()])
+
+
+def saludar():
+    saludo = get_saludo()
+    print(saludo)
+
+
+def saludar_personalizado(nombre):
+    saludo = f"Hola, {nombre}!"
+    return saludo
+
+
 saludo = random.randint(0, 2)
 
 if saludo == 0:
