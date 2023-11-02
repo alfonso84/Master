@@ -1,6 +1,7 @@
 import saludar
 import app
 
+
 class TestSaludar:
 
     def test_saludo1(self):
