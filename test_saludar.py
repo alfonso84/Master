@@ -1,22 +1,13 @@
 import saludar
-import unittest
 
 
-class TestSaludar(unittest.TestCase):
+class TestSaludar:
 
     def test_saludo1(self):
-        saludo = saludar()
-        assert "Hola" == saludo()
+        assert "Hola" == saludar.saludo1()
 
     def test_saludo2(self):
-        saludo = saludar()
-        assert "Buenos días" == saludo()
+        assert "Buenos días" == saludar.saludo2()
 
     def test_saludo3(self):
-        saludo = saludar()
-        assert "Hola, ¿Qué tal?" == saludo()
-
-
-if __name__ == "__main__":
-    unittest.main()
-
+        assert "Hola, ¿Qué tal?" == saludar.saludo3()
